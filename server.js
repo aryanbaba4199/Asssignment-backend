@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDb = require('./db');
 const userRoutes = require('./routes/userRoutes');
+const blogRoutes = require('./routes/blogsRoutes');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -21,9 +22,10 @@ app.get('/', (req, res) => {
 });
 
 app.use('/users',  userRoutes); 
+app.use('/blogs', blogRoutes);
 
 
-// Start the server
+// Starting the server
 app.listen(port, () => {
   console.log(`Server running on Port : ${port}`); 
 });
